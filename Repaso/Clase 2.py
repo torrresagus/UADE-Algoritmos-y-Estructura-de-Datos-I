@@ -29,7 +29,7 @@ def imprimirMatriz(matriz):
         print()
     
 def main():
-    n = int(input("Ingrese el tamaño de la matriz: "))
+    n = int(input("Ingrese el tamaño de la matriz (filas y columnas): "))
     matriz = cargarMatriz(n)
     imprimirMatriz(matriz)
     print(f"La suma de los impares de la matriz es: {sumarImpares(matriz)}")

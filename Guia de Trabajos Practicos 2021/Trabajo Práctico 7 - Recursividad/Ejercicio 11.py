@@ -1,0 +1,1 @@
+# Desarrollar una función que devuelva el mínimo elemento de una matriz de M x N.
