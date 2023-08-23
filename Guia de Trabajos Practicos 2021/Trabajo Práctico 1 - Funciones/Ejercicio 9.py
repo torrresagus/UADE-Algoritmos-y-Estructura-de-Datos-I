@@ -7,3 +7,51 @@
 #reparto. Simular el peso de cada unidad generando un número entero al azar entre
 #150 y 350.
 #Además, se desea saber cuántos camiones se necesitan para transportar la cosecha, considerando que la ocupación del camión no debe ser inferior al 80%; encaso contrario el camión no serán despachado por su alto costo. 
+
+import random
+
+def generar_peso_naranja():
+    return random.randint(150, 350)
+
+def clasificar_naranjas(cantidad):
+    aptas = 0
+    para_jugo = 0
+
+    for i in range(cantidad):
+        peso = generar_peso_naranja()
+        if 200 <= peso <= 300:
+            aptas += 1
+        else:
+            para_jugo += 1
+    
+    return aptas, para_jugo
+
+def calcular_cajones(aptas):
+    cajones = aptas // 100
+    sobrante = aptas % 100
+    return cajones, sobrante
+
+def calcular_camiones(cajones):
+    peso_total = cajones * 25
+    camiones_completos = peso_total // 500
+    resto = peso_total % 500
+
+    if resto >= 400:
+        camiones_completos += 1
+
+    return camiones_completos
+
+def main():
+    naranjas = int(input("Ingrese la cantidad total de naranjas cosechadas: "))
+    
+    aptas, para_jugo = clasificar_naranjas(naranjas)
+    cajones, sobrante = calcular_cajones(aptas)
+    camiones = calcular_camiones(cajones)
+    
+    print(f"\nCajones llenos: {cajones}")
+    print(f"Naranjas aptas para jugo: {para_jugo}")
+    if sobrante:
+        print(f"Sobrante de naranjas para el siguiente reparto: {sobrante}")
+    print(f"Camiones necesarios para transportar la cosecha: {camiones}")
+
+main()
