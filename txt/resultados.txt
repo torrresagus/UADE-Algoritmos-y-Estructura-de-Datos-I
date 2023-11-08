@@ -1,0 +1,2 @@
+3;Rosa;Campos;890000
+4;David;García;900000

@@ -1,0 +1,4 @@
+1;Carlos;Pérez;200000
+2;Manuel;Heredia;168000
+3;Rosa;Campos;890000
+4;David;García;900000

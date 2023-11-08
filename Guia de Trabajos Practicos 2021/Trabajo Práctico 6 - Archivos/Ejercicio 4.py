@@ -9,3 +9,47 @@
 # Smith, John –> descartar
 # El archivo de entrada puede ser creado mediante el Block de Notas o el IDLE. No
 # escribir un programa para generarlo.
+
+def getDataFromFile():
+    try:
+        with open("Apellidos.txt", "r+") as file:
+            data = file.readlines()
+        return data
+    except FileNotFoundError:
+        raise FileNotFoundError
+        
+def writeDataToFile(data, country):
+    try:
+        with open(f"{country}.txt", "w") as file:
+            file.writelines(data)
+    except FileNotFoundError:
+        raise FileNotFoundError
+    
+def listCreator(data, str):
+    persons = []
+    for person in data:
+        lastName = person.split(",")[0].upper()
+        if lastName.endswith(str):
+            persons.append(person)
+            
+    return persons
+
+def main():
+    try:    
+        data = getDataFromFile()
+        armenia = listCreator(data, "IAN")
+        italia = listCreator(data, "INI")
+        españa = listCreator(data, "EZ")
+                
+        writeDataToFile(armenia, "ARMENIA")
+        writeDataToFile(italia, "ITALIA")
+        writeDataToFile(españa, "ESPAÑA")
+    except FileNotFoundError:
+        print("El archivo no existe")
+        exit()
+    else:
+        print("Los archivos se crearon correctamente")
+    finally:
+        print("El programa finalizo correctamente")
+    
+main()

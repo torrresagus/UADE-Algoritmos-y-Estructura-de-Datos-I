@@ -1,0 +1,4 @@
+usd;$
+euro;$euro
+ars;$ard
+uruguay;$$$
