@@ -22,4 +22,3 @@ def eliminar_cola(cola):
     
 def copiar_cola(cola):
     return cola.copy()
-    
